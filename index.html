@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Madhu ❤️</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-box {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .message {
+      margin: 10px 0;
+      padding: 12px 16px;
+      background-color: green;
+      color: black;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-box" id="chat">
+    <!-- Messages will appear here -->
+  </div>
+  <audio autoplay loop>
+    <source src="https://files.codingninjas.in/tum-hi-ho-instrumental-13937.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const messages = [
+      "Hey Madhu...",
+      "I was just sitting and thinking about you...",
+      "About how your smile makes my day brighter ☀️",
+      "About how everything feels better when you're around.",
+      "I don't know how to explain this...",
+      "But you’ve become the most important part of my life.",
+      "You're not just special…",
+      "You’re everything ❤️",
+      "I love you, Madhu.",
+      "– The guy who’s madly in love with you ☁️✨"
+    ];
+
+    const chat = document.getElementById("chat");
+
+    let i = 0;
+    function showNextMessage() {
+      if (i < messages.length) {
+        const msg = document.createElement("div");
+        msg.className = "message";
+        msg.textContent = messages[i];
+        chat.appendChild(msg);
+        setTimeout(() => msg.classList.add("show"), 100);
+        i++;
+        setTimeout(showNextMessage, 2000);
+      }
+    }
+
+    window.onload = showNextMessage;
+  </script>
+</body>
+</html>
